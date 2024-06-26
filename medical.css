@@ -1,0 +1,107 @@
+body{
+background-image: url(aloe.png);
+background-size: cover;
+}
+.icons h6{
+    color: rgb(80, 83, 114);
+}
+.buttons{
+  display: flex;
+   justify-content: space-between;
+
+}
+.button1{
+    padding-left: 500px;
+    justify-content: space-between;
+ 
+  }
+
+  .button2{
+    padding-right: 700px;
+    justify-content: space-between;
+ 
+  }
+  .such{
+      width: 100px;
+  }
+h1{
+    color:rgb(7, 114, 172);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+.head{
+    text-align: center;
+}
+.image img{
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+.icons{
+   padding-top: 280px
+}
+.icons,h4{
+    background-color: ;
+    text-align: center;
+    color: yellow;
+  
+    
+}
+.icons a{
+    text-decoration: none;
+    color: yellow;
+}
+.icons a:hover{
+    color: green;
+}
+.nav ol {
+    display: flex;
+   
+}
+.nav ol li{
+list-style: none;
+  padding-left: 10px;
+  
+}
+.nav ol li a{
+    list-style: none;
+      padding-left: 10px;
+      text-decoration: none;
+     
+      color: white;
+    }
+    .nav ol li :hover{
+       color:wheat;
+       background-color: blue;
+       display: block;
+       border-radius: 5px;
+        }
+.nav ol {
+    display: flex;
+    text-align: center;
+    padding-top: 10px;
+    color:blue;
+}
+.nav ol li{
+list-style: none;
+  padding-left: 10px;
+  text-align: center;
+  color: blue;
+}
+.nav ol li a{
+    list-style: none;
+      padding-left: 10px;
+      text-decoration: none;
+      text-align: center;
+      color: blue;
+    }
+    .nav ol li :hover{
+       color:wheat;
+       background-color: rgb(44, 112, 215);
+       display: block;
+       border-radius: 5px;
+        }
+        .results{
+            height: auto;
+        }
+     
