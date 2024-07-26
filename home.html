@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>DocConnect</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- Assuming you're using Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .wrapper {
+      width: 100%;
+      margin: 0 auto;
+    }
+    #topbar {
+      background-color: white;
+      color: #fff;
+      padding: 10px 0;
+    }
+    .hoc.clear::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    .fl_left, .fl_right {
+      float: left;
+      width: 50%;
+    }
+    .fl_left ul, .fl_right ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .fl_left ul li, .fl_right ul li {
+      display: inline;
+      margin-right: 15px;
+    }
+    .fl_left ul li a, .fl_right ul li {
+      color: #fff;
+      text-decoration: none;
+    }
+    .fl_left ul li a:hover, .fl_right ul li:hover {
+      text-decoration: underline;
+    }
+    .fa-home, .fa-phone, .fa-envelope-o {
+      margin-right: 5px;
+    }
+    /* Header styles */
+    #header {
+      background-color: #004085;
+      padding: 20px 0;
+      text-align: center;
+    }
+    #logo img {
+      width: 150px;
+      border-radius: 30%;
+    }
+    #logo h1 {
+      color: #fff;
+      margin: 10px 0 0;
+      font-size: 24px;
+      line-height: 1.5;
+    }
+    #mainav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    #mainav ul li {
+      display: inline;
+      margin-left: 20px;
+    }
+    #mainav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    #mainav ul li a:hover {
+      text-decoration: underline;
+    }
+    .active a {
+      color: #ffc107;
+    }
+    /* Page intro styles */
+    .bgded {
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      text-align: center;
+      padding: 100px 0;
+    }
+    .bgded.overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+    #pageintro article {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+    }
+    #pageintro .heading {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #ffc107;
+    }
+    #pageintro p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      color: #fff;
+      background-color: #ffc107;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background-color: #e0a800;
+    }
+    /* Section styles */
+    .wrapper.row3 {
+      background-color: #fff;
+      padding: 60px 0;
+    }
+    .hoc.container.clear {
+      width: 90%;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+    .sectiontitle {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .sectiontitle .heading {
+      font-size: 28px;
+      color: #004085;
+      margin-bottom: 10px;
+    }
+    .sectiontitle p {
+      font-size: 16px;
+      color: #666;
+    }
+    .nospace {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .btmspace-80 {
+      margin-bottom: 80px;
+    }
+    .group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .one_third {
+      width: 32%;
+      margin-bottom: 20px;
+    }
+    .one_third.first {
+      margin-right: 2%;
+    }
+    .one_third article {
+      text-align: center;
+      padding: 20px;
+      background-color: #f4f4f4;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .one_third article i {
+      font-size: 48px;
+      color: #ffc107;
+      margin-bottom: 10px;
+    }
+    .one_third article h6 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .one_third article h6 a {
+      color: #004085;
+      text-decoration: none;
+    }
+    .one_third article h6 a:hover {
+      text-decoration: underline;
+    }
+    .center {
+      text-align: center;
+    }
+    .overview {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .overview li {
+      width: 32%;
+      margin-bottom: 20px;
+    }
+    .overview figure {
+      position: relative;
+      overflow: hidden;
+    }
+    .overview figure a {
+      display: block;
+    }
+    .overview figure img {
+      width: 100%;
+      transition: transform 0.3s ease;
+    }
+    .overview figure a:hover img {
+      transform: scale(1.1);
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 40px 0;
+    }
+    /* Testimonials styles */
+    .wrapper.row2 {
+      background-color: #f9f9f9;
+      padding: 60px 0;
+    }
+    .testimonials blockquote {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #333;
+      background-color: #fff;
+      padding: 20px;
+      border-left: 5px solid #004085;
+      margin: 0 0 20px;
+      position: relative;
+    }
+    .testimonials figure {
+      display: flex;
+      align-items: center;
+    }
+    .testimonials figure img.circle {
+      border-radius: 50%;
+      margin-right: 20px;
+      width: 70px;
+      height: 70px;
+    }
+    .testimonials figure figcaption {
+      margin-left: 10px;
+    }
+    .testimonials figure .heading {
+      font-size: 18px;
+      margin-bottom: 5px;
+      color: #004085;
+    }
+    .testimonials figure em {
+      font-size: 14px;
+      color: #666;
+    }
+    /* Footer styles */
+    #footer {
+      background-color: #004085;
+      color: #fff;
+      padding: 50px 0;
+    }
+    #footer .one_quarter {
+      width: 23%;
+      margin-bottom: 40px;
+      padding-right: 2%;
+    }
+    #footer .one_quarter.first {
+      padding-left: 2%;
+    }
+    #footer .heading {
+      font-size: 18px;
+      color: #ffc107;
+      margin-bottom: 15px;
+    }
+    #footer ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    #footer ul li {
+      line-height: 2;
+    }
+    #footer .fa {
+      margin-right: 10px;
+      color: #ffc107;
+    }
+    #footer .fa:hover {
+      color: #e0a800;
+    }
+    #footer form {
+      margin-top: 15px;
+    }
+    #footer fieldset {
+      border: none;
+    }
+    #footer input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+    #footer button {
+      background-color: #ffc107;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    #footer button:hover {
+      background-color: #e0a800;
+    }
+    /* Copyright Styles */
+    .wrapper.row5 {
+      background-color: #004085;
+      color: #fff;
+      padding: 20px 0;
+    }
+    #copyright {
+      text-align: center;
+    }
+    #copyright p {
+      margin: 0;
+    }
+    #copyright a {
+      color: #ffc107;
+      text-decoration: none;
+    }
+    #copyright a:hover {
+      text-decoration: underline;
+    }
+    .fl_left, .fl_right {
+      float: left;
+      width: 50%;
+    }
+  </style>
+</head>
+<body id="top">
+
+<div class="wrapper row0" style="color: antiquewhite;">
+  <div id="topbar" class="hoc clear">  
+    <div class="fl_left">
+      <ul class="nospace">
+        <li><a href="home.html" style="color: rgb(28, 54, 88);"><i class="fa fa-lg fa-home"></i></a></li>
+        <li><a href="login.php" style="color: rgb(28, 54, 88);">Login</a></li>
+        <li><a href="registration.php" style="color:rgb(28, 54, 88); "> Register</a></li>
+      </ul>
+    </div>
+    <div class="fl_right">
+      <ul class="nospace">
+        <li style="color:rgb(28, 54, 88) ;"><i class="fa fa-phone" ></i> +256 760430953</li>
+        <li style="color: rgb(28, 54, 88);"><i class="fa fa-envelope-o"></i> info@consultation.com</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper row1">
+  <header id="header" class="hoc clear"> 
+    <div id="logo">
+      <a href="home.html">
+        <img src="photos/logo.jfif" alt="DocConnect Logo">
+      </a>
+      <h1 ><a href="home.html" style="color: #e0a800;">DocConnect Medical Consultation</a></h1>
+    </div>
+    <nav id="mainav">
+      <ul class="clear">
+        <li class="active"><a href="home.html">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="admin.php">Admin</a></li>
+      </ul>
+    </nav>
+  </header>
+</div>
+
+<div class="wrapper bgded overlay" style="background-image:url('photos/6.jfif');">
+  <div id="pageintro" class="hoc clear"> 
+    <article>
+      <p style="color: black;">WELCOME TO DocConnect HOME OF MEDICAL KNOWLEDGE AND EXPERTISE</p>
+      <h3 class="heading">DocConnect</h3>
+      <footer>
+        <ul class="nospace inline pushright">
+          <li><a class="btn" href="#">Gallery</a></li>
+        </ul>
+      </footer>
+    </article>
+  </div>
+</div>
+<div class="wrapper row2" style="color: rgb(30, 82, 226);">
+  <section class="hoc container clear testimonials"> 
+    <div class="sectiontitle">
+      <h6 class="heading">Testimonials</h6>
+      <p>Proof for performance and expertise</p>
+    </div>
+    <ul class="nospace group btmspace-80">
+      <li class="one_third first">
+        <blockquote>"I absolutely love your product. It's comprehensive, and includes information that other resources do not.”</blockquote>
+        <figure class="clear"><img class="circle" src="photos/makobi.jfif" alt="">
+          <figcaption>
+            <h6 class="heading">MAKOBI SIMON PETER</h6>
+            <em>WHO President</em>
+          </figcaption>
+        </figure>
+      </li>
+      <li class="one_third">
+        <blockquote>"It is truly a fabulous resource. I heard about it from a speaker from NCCAM who uses it all the time. If that isn't a testimonial, I don't know what is.”</blockquote>
+        <figure class="clear"><img class="circle" src="" alt="">
+          <figcaption>
+            <h6 class="heading">MUSASIZI BRIAN</h6>
+            <em>Client</em>
+          </figcaption>
+        </figure>
+      </li>
+      <li class="one_third">
+        <blockquote>"Your site is great. I plan to use the information in your site to support my own research when putting together talks and seminars.”</blockquote>
+        <figure class="clear"><img class="circle" src="photos/doreen.jfif" alt="">
+          <figcaption>
+            <h6 class="heading">DR. DOREEN TUSHABWOMWE</h6>
+            <em>Medical consultant</em>
+          </figcaption>
+        </figure>
+      </li>
+    </ul>
+    <footer><a class="btn" href="#">View More »</a></footer>
+  </section>
+</div>
+
+<!-- Begin Herbal Clinic Footer -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Herbal Clinic</title>
+        <style>
+            body {
+                font-family: sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f2f2f2;
+            }
+            .wrapper {
+                width: 90%;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+            footer {
+                background-color: #fff;
+                padding: 30px 0;
+                border-top: 1px solid #ddd;
+            }
+            .one_quarter {
+                width: 25%;
+                float: left;
+                padding: 0 20px;
+            }
+            .first {
+                margin-left: 0;
+            }
+            h6.heading {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                color: #68aef8;
+            }
+            .nospace {
+                margin: 0;
+                padding: 0;
+            }
+            .btmspace-30 {
+                margin-bottom: 30px;
+            }
+            .btmspace-15 {
+                margin-bottom: 15px;
+            }
+            .linklist li {
+                list-style: none;
+                margin-bottom: 10px;
+            }
+            .linklist a {
+                color: #333;
+                text-decoration: none;
+            }
+            .linklist a:hover {
+                text-decoration: underline;
+            }
+            .faico li {
+                display: inline-block;
+                margin-right: 10px;
+            }
+            .faico a {
+                background-color: #68aef8;
+                color: #fff;
+                padding: 8px 12px;
+                border-radius: 50%;
+                text-decoration: none;
+            }
+            .faico a:hover {
+                background-color: #5090d8;
+            }
+            .fa {
+                font-size: 1.2em;
+            }
+            .contact li {
+                margin-bottom: 10px;
+            }
+            .contact li i {
+                margin-right: 10px;
+            }
+            form {
+                width: 100%;
+            }
+            input[type="text"] {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+            }
+            button {
+                background-color: #68aef8;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            .clear {
+                clear: both;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper row3" style="color: #68aef8;">
+            <footer id="footer" class="hoc clear"> 
+              <div class="one_quarter first">
+                <h6 class="heading">Find Us</h6>
+                <ul class="nospace btmspace-30 linklist contact">
+                  <li><i class="fa fa-map-marker"></i> KABALE KATUNA RD PLOT65, RUSHOROZA,</li>
+                  <li><i class="fa fa-phone"></i> +256 760430953</li>
+                  <li><i class="fa fa-envelope-o"></i> info@consultation.com</li>
+                </ul>
+                <ul class="faico clear">
+                  <li><a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                  <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                  <li><a class="faicon-dribble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                  <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+              </div>
+              <div class="one_quarter">
+                <h6 class="heading">Services</h6>
+                <ul class="nospace linklist">
+                  <li><a href="#" style="color: white;">Herbal Medicine</a></li>
+                  <li><a href="#"style="color: white;">Prescriptions</a></li>
+                  <li><a href="#"style="color: white;">Herbal Research</a></li>
+                  <li><a href="#"style="color: white;">Counselling</a></li>
+                  <li><a href="#"style="color: white;">Treatment</a></li>
+                </ul>
+              </div>
+              <div class="one_quarter">
+                <h6 class="heading">Infections</h6>
+                <ul class="nospace linklist">
+                  <li><a href="#"style="color: white;">Skin Infections</a></li>
+                  <li><a href="#"style="color: white;">Ulcers</a></li>
+                  <li><a href="#"style="color: white;">Cancer</a></li>
+                  <li><a href="#"style="color: white;">Pressure</a></li>
+                  <li><a href="#"style="color: white;">Pneumonia</a></li>
+                </ul>
+              </div>
+              <div class="one_quarter">
+                <h6 class="heading">Newsletter</h6>
+                <p class="nospace btmspace-15">Subscribe to our Newsletter for Updates. To get in touch with Expert</p>
+                <form method="post" action="#">
+                  <fieldset>
+                    <legend>Newsletter:</legend>
+                    <input class="btmspace-15" type="text" value="" placeholder="Name">
+                    <input class="btmspace-15" type="text" value="" placeholder="Email">
+                    <button type="submit" value="submit">Submit</button>
+                  </fieldset>
+                </form>
+              </div>
+            </footer>
+          </div>
+
+    </body>
+</html>
+
+<!-- End Herbal Clinic Footer -->
+<div class="wrapper row5">
+  <div id="copyright" class="hoc clear"> 
+    <p class="fl_left">Copyright © 2020 - All Rights Reserved to bcs/bit interns Kabale University - <a href="#">DocConnect MEDICAL CONSULTANCY</a></p>
+    <p class="fl_right">Designed by <a target="_blank" href="#">kab University IT interns 2024</a></p>
+  </div>
+</div>
+
+</body>
+</html>
